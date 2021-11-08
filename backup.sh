@@ -10,8 +10,8 @@ CHAT_ID=
 start=$(date '+%d/%m/%Y %H:%M:%S');
 curl -s "https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$CHAT_ID&text=Backup Started at $start"
 #mkdir /mnt/BackupDIR
-mount -t cifs -o username=Jarvis,password=ftWWj6D8Lk5nKQxw,vers=2.0 //ip/BackupDIR/ /mnt/BackupDIR
-dd bs=4M if=/dev/mmcblk0 | gzip -c >/mnt/BackupDIR/Jarvis-Pi-$now.img.gz
+mount -t cifs -o username=SMBUSERNAME,password=SMBPASSWORD,vers=2.0 //ip/BackupDIR/ /mnt/BackupDIR
+dd bs=4M if=/dev/mmcblk0 | gzip -c >/mnt/BackupDIR/RPi-$now.img.gz
 umount /mnt/BackupDIR
 #rm /mnt/MtHDD
 end=$(date '+%d/%m/%Y %H:%M:%S');
