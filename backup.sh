@@ -13,7 +13,7 @@ curl -s "https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$CHAT_ID&text=
 mount -t cifs -o username=SMBUSERNAME,password=SMBPASSWORD,vers=2.0 //ip/BackupDIR/ /mnt/BackupDIR
 dd bs=4M if=/dev/mmcblk0 | gzip -c >/mnt/BackupDIR/RPi-$now.img.gz
 umount /mnt/BackupDIR
-#rm /mnt/MtHDD
+#rm /mnt/BackupDIR
 end=$(date '+%d/%m/%Y %H:%M:%S');
 runtime=$((end-start))
 curl -s "https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$CHAT_ID&text=Backup Finished at $end"
